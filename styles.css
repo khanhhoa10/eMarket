@@ -1,0 +1,109 @@
+/* =========================================================
+   eMarket — Hệ thống quản lý siêu thị (v4.2)
+   styles.css — toàn bộ style tách riêng khỏi HTML
+   ========================================================= */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap");
+body {
+  font-family: "Inter", system-ui, sans-serif;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+.screen {
+  display: none;
+}
+.screen.active {
+  display: block;
+}
+.navitem.active-nav {
+  background: #1e293b;
+  color: #34d399;
+}
+.fade-in {
+  animation: fadein 0.2s ease;
+}
+@keyframes fadein {
+  from {
+    opacity: 0;
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.slide-over {
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+}
+.slide-over.open {
+  transform: translateX(0);
+}
+#toastContainer {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  pointer-events: none;
+}
+.toast {
+  animation: toastin 0.25s ease;
+}
+@keyframes toastin {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.pos-screen {
+  display: none;
+}
+.pos-screen.active {
+  display: flex;
+}
+.mbtab.active-tab {
+  color: #10b981;
+}
+/* Mobile full-screen & safe-area */
+html, body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+}
+#app-cham_cong {
+  width: 100%;
+  min-height: 100dvh;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
+}
+#app-cham_cong > nav {
+  padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 4px);
+}
+/* POS full-screen */
+#app-thu_ngan {
+  width: 100%;
+  min-height: 100dvh;
+}
+/* Notif panel slide */
+#mgrNotifPanel {
+  animation: slideDown 0.15s ease;
+}
+@keyframes slideDown {
+  from { opacity:0; transform:translateY(-6px); }
+  to   { opacity:1; transform:translateY(0); }
+}
